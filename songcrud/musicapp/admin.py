@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import artiste, song, lyric
+from .models import Artiste, Song, Lyric
 # Register your models here.
 
-admin.site.register(artiste)
-admin.site.register(song)
-admin.site.register(lyric)
+admin.site.register(Artiste)
+admin.site.register(Song)
+admin.site.register(Lyric)
