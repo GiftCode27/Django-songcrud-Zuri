@@ -1,5 +1,4 @@
 """songcrud URL Configuration
-
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
 Examples:
@@ -14,8 +13,24 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import path,include
+
+from rest_framework import routers
+from musicapp import views, viewsets
+
+router = routers.DefaultRouter()
+router.register('users', viewsets.UserViewSet)
+router.register('songs', viewsets.SongViewSet)
+router.register('lyrics', viewsets.LyricViewSet)
+
+# Wire up our API using automatic URL routing.
+# Additionally, we include login URLs for the browsable API.
+
 
 urlpatterns = [
-    path('zuri-admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
+    path('', include(router.urls)),
+    path('',include('musicapp.urls')),
+    # path('router', include('songcrud.routers')),
+    path('api-auth/', include('rest_framework.urls'))
 ]

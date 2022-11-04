@@ -21,7 +21,6 @@ class Song(models.Model):
     title = models.CharField(max_length=50)
     date_released = models.DateField(default=datetime.today)
     likes = models.IntegerField(blank=True)
-
     def getSongTitle(self):
         return self.title
     
