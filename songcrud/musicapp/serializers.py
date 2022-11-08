@@ -40,7 +40,6 @@ class SongSerializer(serializers.HyperlinkedModelSerializer):
             'title',
             'date_released',
             'likes',
-            'artist_id',
             'url',
             ]
 
